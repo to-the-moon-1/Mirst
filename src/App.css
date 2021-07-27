@@ -1,0 +1,47 @@
+/*ALL PAGE*/
+
+.container-page {
+    background-color: lavender;
+}
+
+.MuiContainer-root {
+    padding: 0 !important;
+}
+
+.container-content {
+    background-color: white;
+}
+
+.main-content {
+    padding: 80px 30px;
+}
+
+
+
+
+
+/*HEADER*/
+
+.headerLink {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    /*color: #e0e2ef;*/
+    color: #fff;
+    /*font-size: 0.875rem;*/
+    font-size: 1rem;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: .7;
+}
+
+.MuiToolbar-root {
+    justify-content: space-between;
+}
+
+.activeLink {
+    color: #fff;
+    opacity: 1;
+}
