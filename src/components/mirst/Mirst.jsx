@@ -29,7 +29,7 @@ const Mirst = (props) => {
             {props.cell.map((c, i) =>
                 <Button onClick={() => handleClick(c, i)} variant="outlined" color="primary" name={`btn_${i}`} key={`id_${i}`} id={i}
                         style={{width: c.row, height: c.col, backgroundColor: c.backgroundColor}}
-                        className={c.selected ? "activeCell cell" : "cell"}>{c.index}</Button>
+                        className={c.selected ? "activeCell cell" : "cell"} />
             )}
         </div>
     </>

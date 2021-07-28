@@ -10,21 +10,18 @@ let initialState = {
             col: "50px",
             backgroundColor: "#fff",
             selected: false,
-            index: 1,
         },
         {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
             selected: false,
-            index: 2,
         },
         {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
             selected: false,
-            index: 3,
         },
     ]
 }
@@ -37,7 +34,6 @@ const cellReducer = (state = initialState, action) => {
                 col: "50px",
                 backgroundColor: "#fff",
                 selected: false,
-                index: state.cell.length + 1
             }
             return {...state, cell: [...state.cell, newCell]}
         }

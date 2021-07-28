@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4417cfc9-9974-498a-bf44-2c92f1d4ea53" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/cell-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/cell-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +59,7 @@
       <workItem from="1627424221045" duration="9531000" />
       <workItem from="1627483808222" duration="3717000" />
       <workItem from="1627488595061" duration="7267000" />
-      <workItem from="1627500640099" duration="2905000" />
+      <workItem from="1627500640099" duration="3015000" />
     </task>
     <servers />
   </component>
