@@ -10,10 +10,11 @@
 
 .container-content {
     background-color: white;
+    /*background-color: #f5f5f5;*/
 }
 
 .main-content {
-    padding: 80px 30px;
+    padding: 100px 30px;
 }
 
 
@@ -44,4 +45,46 @@
 .activeLink {
     color: #fff;
     opacity: 1;
+}
+
+
+
+
+
+/*MIRST PAGE*/
+
+.buttonContainer {
+    margin-bottom: 50px;
+}
+
+.btn {
+    width: 24.25%;
+    margin-left: 1% !important;
+}
+
+.btn:first-child {
+    margin-left: 0 !important;
+}
+
+.addBtn {
+    background-color: royalblue !important;
+}
+
+.deleteBtn {
+    background-color: lightblue !important;
+}
+
+
+
+
+
+/*CELL*/
+
+.cellContainer {
+    /*box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.2);*/
+    /*border-radius: 4px;*/
+    border: 2px solid lavender;
+    /*border-bottom: unset;*/
+    /*border-top: unset;*/
+    display: inline-block;
 }

@@ -2,7 +2,7 @@ import './App.css';
 import {Container} from "@material-ui/core";
 import Header from "./components/header/Header";
 import {Switch, Route} from "react-router-dom";
-import Mirst from "./components/mirst/Mirst";
+import MirstContainer from "./components/mirst/MirstContainer";
 
 function App() {
     return (
@@ -11,7 +11,7 @@ function App() {
             <Container maxWidth="md" className="container-content">
                 <div className="main-content">
                     <Switch>
-                        <Route exact path="/" component={Mirst} />
+                        <Route exact path="/" component={MirstContainer} />
                         <Route path="/view" />
                     </Switch>
                 </div>
