@@ -1,6 +1,7 @@
 const SET_CELL = 'SET_CELL';
 const SET_SELECTED = 'SET_SELECTED';
 const SET_NO_SELECTED = 'SET_NO_SELECTED';
+const SET_DELETE_CELL = 'SET_DELETE_CELL';
 
 let initialState = {
     cell: [
@@ -8,19 +9,22 @@ let initialState = {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
-            selected: false
+            selected: false,
+            index: 1,
         },
         {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
-            selected: false
+            selected: false,
+            index: 2,
         },
         {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
-            selected: false
+            selected: false,
+            index: 3,
         },
     ]
 }
@@ -32,15 +36,11 @@ const cellReducer = (state = initialState, action) => {
                 row: "50px",
                 col: "50px",
                 backgroundColor: "#fff",
-                selected: false
+                selected: false,
+                index: state.cell.length + 1
             }
             return {...state, cell: [...state.cell, newCell]}
         }
-        // case SET_CELL: {
-        //     return {...state, cell: action.cell}
-        // }
-        // case SET_SELECTED:
-        //     return {...state, cell: {...state.cell, selected: action.selected}}
         case SET_SELECTED: {
             return {
                 ...state,
@@ -63,6 +63,12 @@ const cellReducer = (state = initialState, action) => {
                 })
             }
         }
+        case SET_DELETE_CELL: {
+            return {
+                ...state,
+                cell: state.cell.filter(c => c.selected === false)
+            }
+        }
         default: {
             return state;
         }
@@ -70,9 +76,8 @@ const cellReducer = (state = initialState, action) => {
 }
 
 export const setCellAC = () => ({type: SET_CELL});
-// export const setCellAC = (cell) => ({type: SET_CELL, cell});
-// export const setSelectedAC = (selected) => ({type: SET_SELECTED, selected});
 export const setSelectedAC = (i) => ({type: SET_SELECTED, i});
 export const setNoSelectedAC = (i) => ({type: SET_NO_SELECTED, i});
+export const setDeleteCellAC = () => ({type: SET_DELETE_CELL});
 
 export default cellReducer;

@@ -10,6 +10,7 @@
 
 .container-content {
     background-color: white;
+    height: 905px;
     /*background-color: #f5f5f5;*/
 }
 
@@ -103,5 +104,6 @@
 }
 
 .activeCell {
-    background-color: #b9c2fa !important;
+    /*background-color: #b9c2fa !important;*/
+    background-color: gold !important;
 }
