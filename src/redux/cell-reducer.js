@@ -2,6 +2,7 @@ const SET_CELL = 'SET_CELL';
 const SET_SELECTED = 'SET_SELECTED';
 const SET_NO_SELECTED = 'SET_NO_SELECTED';
 const SET_DELETE_CELL = 'SET_DELETE_CELL';
+const SET_COLOR = 'SET_COLOR';
 
 let initialState = {
     cell: [
@@ -10,18 +11,21 @@ let initialState = {
             col: "50px",
             backgroundColor: "#fff",
             selected: false,
+            index: Math.round(new Date().getTime() * Math.random())
         },
         {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
             selected: false,
+            index: Math.round(new Date().getTime() * Math.random())
         },
         {
             row: "50px",
             col: "50px",
             backgroundColor: "#fff",
             selected: false,
+            index: Math.round(new Date().getTime() * Math.random())
         },
     ]
 }
@@ -34,6 +38,7 @@ const cellReducer = (state = initialState, action) => {
                 col: "50px",
                 backgroundColor: "#fff",
                 selected: false,
+                index: Math.round(new Date().getTime() * Math.random())
             }
             return {...state, cell: [...state.cell, newCell]}
         }
@@ -65,6 +70,17 @@ const cellReducer = (state = initialState, action) => {
                 cell: state.cell.filter(c => c.selected === false)
             }
         }
+        case SET_COLOR: {
+            return {
+                ...state,
+                cell: state.cell.map((c, i) => {
+                    if (c.selected) {
+                        return {...c, backgroundColor: action.color, selected: false}
+                    }
+                    return c
+                })
+            }
+        }
         default: {
             return state;
         }
@@ -75,5 +91,6 @@ export const setCellAC = () => ({type: SET_CELL});
 export const setSelectedAC = (i) => ({type: SET_SELECTED, i});
 export const setNoSelectedAC = (i) => ({type: SET_NO_SELECTED, i});
 export const setDeleteCellAC = () => ({type: SET_DELETE_CELL});
+export const setColorAC = (color) => ({type: SET_COLOR, color});
 
 export default cellReducer;

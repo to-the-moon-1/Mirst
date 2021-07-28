@@ -54,8 +54,10 @@
 
 /*MIRST PAGE*/
 
+/*BUTTON*/
+
 .buttonContainer {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .btn {
@@ -78,9 +80,48 @@
     background-color: crimson !important;
 }
 
+/*PALETTE COLORS*/
 
+.colorContainer {
+    width: 24.2%;
+    margin-left: 75.8%;
+    margin-bottom: 50px;
+}
 
+.color {
+    display: inline-block;
+    margin: 3px !important;
+    padding: 0 !important;
+    min-width: unset !important;
+    width: 30px;
+    height: 30px;
+}
 
+.colorOne {
+    background-color: #a4e7aa !important;
+}
+
+.colorTwo {
+    background-color: lightblue !important;
+}
+
+.colorThree {
+    /*background-color: #a6a2ff !important;*/
+    background-color: #aaa7ff !important;
+}
+
+.colorFour {
+    /*background-color: darkorange !important;*/
+    background-color: lightcoral !important;
+}
+
+.colorFive {
+    background-color: burlywood !important;
+}
+
+.colorSix {
+    background-color: thistle !important;
+}
 
 /*CELL*/
 

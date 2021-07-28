@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Mirst from "./Mirst";
-import {setCellAC, setDeleteCellAC, setNoSelectedAC, setSelectedAC} from "../../redux/cell-reducer";
+import {setCellAC, setColorAC, setDeleteCellAC, setNoSelectedAC, setSelectedAC} from "../../redux/cell-reducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -21,6 +21,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setDeleteCell: () => {
             dispatch(setDeleteCellAC())
+        },
+        setColor: (color) => {
+            dispatch(setColorAC(color))
         },
     }
 }
