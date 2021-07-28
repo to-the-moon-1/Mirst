@@ -54,7 +54,7 @@
 /*MIRST PAGE*/
 
 .buttonContainer {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .btn {
@@ -67,11 +67,14 @@
 }
 
 .addBtn {
-    background-color: royalblue !important;
+    /*background-color: #d49803 !important;*/
+    /*background-color: darkcyan !important;*/
+    /*background-color: lightslategrey !important;*/
+    background-color: slategrey !important;
 }
 
 .deleteBtn {
-    background-color: lightblue !important;
+    background-color: crimson !important;
 }
 
 
@@ -80,11 +83,25 @@
 
 /*CELL*/
 
-.cellContainer {
+.cell {
     /*box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.2);*/
-    /*border-radius: 4px;*/
-    border: 2px solid lavender;
-    /*border-bottom: unset;*/
-    /*border-top: unset;*/
+    border-radius: 2px !important;
+    /*border: 2px solid lavender !important;*/
+    border: none !important;
     display: inline-block;
+    margin: 3px !important;
+    padding: 0 !important;
+    min-width: unset !important;
+}
+
+.cellContainer {
+    /*background-color: #3f51b5;*/
+    /*background-color: #4f62cb;*/
+    background-color: #5c6fdb;
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+
+.activeCell {
+    background-color: #b9c2fa !important;
 }

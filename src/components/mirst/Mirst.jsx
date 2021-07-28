@@ -1,23 +1,44 @@
 // import { DataGrid } from '@material-ui/data-grid';
 // import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 
+import React from "react";
 import {Button} from "@material-ui/core";
 
 const Mirst = (props) => {
+
     console.log(props.cell)
+
+    // const selectedBtn = (button) => {
+    //     console.log(button.target.attributes.id)
+    //     console.log(props.cell.selected)
+    //     props.setSelected(button.target.attributes.id)
+    // }
+
+    // const newCell = () => {
+    //     return <Button />
+    // }
+
+    const addNewCell = () => {
+        props.setCell()
+    }
+
+    const handleClick = (c, i) => {
+            c.selected === false ? props.setSelected(i) : props.setNoSelected(i)
+    }
+
     return <>
         <div className="buttonContainer">
-            <Button variant="contained" color="primary" className="btn addBtn">
-                Primary
+            <Button onClick={addNewCell} variant="contained" color="primary" className="btn addBtn">
+                Add new cell
             </Button>
             <Button variant="contained" color="secondary" className="btn deleteBtn">
-                Secondary
+                Delete cell
             </Button>
             <Button variant="outlined" color="primary" className="btn">
-                Primary
+                Combine cells
             </Button>
-            <Button variant="outlined" color="secondary" className="btn">
-                Secondary
+            <Button variant="outlined" color="primary" className="btn">
+                Separate cells
             </Button>
         </div>
 
@@ -31,9 +52,13 @@ const Mirst = (props) => {
         {/*    </AgGridReact>*/}
         {/*)}*/}
 
-        {props.cell.map((c, i) =>
-            <span key={`id_${i}`} id={i} style={{width: c.row, height: c.col, backgroundColor: c.backgroundColor, margin: 0, padding: 0}} className="cellContainer" />
-        )}
+        <div className="cellContainer">
+            {props.cell.map((c, i) =>
+                <Button onClick={() => handleClick(c, i)} variant="outlined" color="primary" name={`btn_${i}`} key={`id_${i}`} id={i}
+                        style={{width: c.row, height: c.col, backgroundColor: c.backgroundColor}}
+                        className={c.selected ? "activeCell cell" : "cell"} />
+            )}
+        </div>
     </>
 }
 
