@@ -1,10 +1,17 @@
 import {connect} from "react-redux";
 import Mirst from "./Mirst";
-import {setCellAC, setColorAC, setDeleteCellAC, setNoSelectedAC, setSelectedAC} from "../../redux/cell-reducer";
+import {
+    setCellAC,
+    setColorAC,
+    setDeleteCellAC,
+    setNoSelectedAC,
+    setSelectedAC
+} from "../../redux/cell-reducer";
 
 let mapStateToProps = (state) => {
     return {
-        cell: state.cellPage.cell,
+        // cell: state.cellPage.cell,
+        table: state.cellPage.table,
     }
 }
 
@@ -13,11 +20,11 @@ let mapDispatchToProps = (dispatch) => {
         setCell: () => {
             dispatch(setCellAC())
         },
-        setSelected: (i) => {
-            dispatch(setSelectedAC(i))
+        setSelected: (i, id) => {
+            dispatch(setSelectedAC(i, id))
         },
-        setNoSelected: (i) => {
-            dispatch(setNoSelectedAC(i))
+        setNoSelected: (i, id) => {
+            dispatch(setNoSelectedAC(i, id))
         },
         setDeleteCell: () => {
             dispatch(setDeleteCellAC())
@@ -25,6 +32,9 @@ let mapDispatchToProps = (dispatch) => {
         setColor: (color) => {
             dispatch(setColorAC(color))
         },
+        // setCombine: (i) => {
+        //     dispatch(setCombineAC(i))
+        // },
     }
 }
 

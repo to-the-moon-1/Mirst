@@ -131,8 +131,9 @@
 /*    !*border: 2px solid lavender !important;*!*/
 /*    border: none !important;*/
 /*    display: inline-block;*/
-/*    margin: 3px !important;*/
-/*    padding: 0 !important;*/
+/*    margin: 0.4% !important;*/
+/*    !*padding: 0 !important;*!*/
+/*    padding: 2.93% !important;*/
 /*    min-width: unset !important;*/
 /*}*/
 
@@ -140,7 +141,8 @@
 /*    !*background-color: #3f51b5;*!*/
 /*    !*background-color: #4f62cb;*!*/
 /*    background-color: #5c6fdb;*/
-/*    padding: 20px 30px;*/
+/*    !*padding: 20px 30px;*!*/
+/*    padding: 2.5% 3.7%;*/
 /*    border-radius: 5px;*/
 /*}*/
 
@@ -148,165 +150,3 @@
 /*    !*background-color: #b9c2fa !important;*!*/
 /*    background-color: gold !important;*/
 /*}*/
-
-
-
-
-
-
-
-
-
-
-/*ALL PAGE*/
-
-.container-page {
-    background-color: lavender;
-}
-
-.MuiContainer-root {
-    padding: 0 !important;
-}
-
-.container-content {
-    background-color: white;
-    height: 905px;
-    /*background-color: #f5f5f5;*/
-}
-
-.main-content {
-    padding: 100px 30px;
-}
-
-
-
-
-
-/*HEADER*/
-
-.headerLink {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 500;
-    /*color: #e0e2ef;*/
-    color: #fff;
-    /*font-size: 0.875rem;*/
-    font-size: 1rem;
-    line-height: 1.75;
-    border-radius: 4px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    text-decoration: none;
-    opacity: .7;
-}
-
-.MuiToolbar-root {
-    justify-content: space-between;
-}
-
-.activeLink {
-    color: #fff;
-    opacity: 1;
-}
-
-
-
-
-
-/*MIRST PAGE*/
-
-/*BUTTON*/
-
-.buttonContainer {
-    margin-bottom: 20px;
-}
-
-.btn {
-    width: 24.25%;
-    margin-left: 1% !important;
-}
-
-.btn:first-child {
-    margin-left: 0 !important;
-}
-
-.addBtn {
-    /*background-color: #d49803 !important;*/
-    /*background-color: darkcyan !important;*/
-    /*background-color: lightslategrey !important;*/
-    background-color: slategrey !important;
-}
-
-.deleteBtn {
-    background-color: crimson !important;
-}
-
-/*PALETTE COLORS*/
-
-.colorContainer {
-    width: 24.2%;
-    margin-left: 75.8%;
-    margin-bottom: 50px;
-}
-
-.color {
-    display: inline-block;
-    margin: 3px !important;
-    padding: 0 !important;
-    min-width: unset !important;
-    width: 30px;
-    height: 30px;
-}
-
-.colorOne {
-    background-color: #a4e7aa !important;
-}
-
-.colorTwo {
-    background-color: lightblue !important;
-}
-
-.colorThree {
-    /*background-color: #a6a2ff !important;*/
-    background-color: #aaa7ff !important;
-}
-
-.colorFour {
-    /*background-color: darkorange !important;*/
-    background-color: lightcoral !important;
-}
-
-.colorFive {
-    background-color: burlywood !important;
-}
-
-.colorSix {
-    background-color: thistle !important;
-}
-
-/*CELL*/
-
-.cell {
-    /*box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.2);*/
-    border-radius: 2px !important;
-    /*border: 2px solid lavender !important;*/
-    border: none !important;
-    display: inline-block;
-    margin: 0.4% !important;
-    /*padding: 0 !important;*/
-    padding: 2.93% !important;
-    min-width: unset !important;
-}
-
-.cellContainer {
-    /*background-color: #3f51b5;*/
-    /*background-color: #4f62cb;*/
-    background-color: #5c6fdb;
-    /*padding: 20px 30px;*/
-    padding: 2.5% 3.7%;
-    border-radius: 5px;
-}
-
-.activeCell {
-    /*background-color: #b9c2fa !important;*/
-    background-color: gold !important;
-}
