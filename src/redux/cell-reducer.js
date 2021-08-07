@@ -3,204 +3,119 @@ const SET_SELECTED = 'SET_SELECTED';
 const SET_NO_SELECTED = 'SET_NO_SELECTED';
 const SET_DELETE_CELL = 'SET_DELETE_CELL';
 const SET_COLOR = 'SET_COLOR';
-// const SET_COMBINE = 'SET_COMBINE';
+const SET_COMBINE = 'SET_COMBINE';
+
+let numCol = 1
 
 let initialState = {
-    table: [
+    cell: [
         {
-            row: [
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                },
-                {
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                }
-            ]
-        }
-    ]
+            backgroundColor: "#fff",
+            selected: false,
+            index: Math.round(new Date().getTime() * Math.random())
+        },
+        {
+            backgroundColor: "#fff",
+            selected: false,
+            index: Math.round(new Date().getTime() * Math.random())
+        },
+        {
+            backgroundColor: "#fff",
+            selected: false,
+            index: Math.round(new Date().getTime() * Math.random())
+        },
+        // ].map((c, i) => {return {...c, id: i, row: i === 0 ? numRow : Number.isInteger(i / 15) ? numRow = numRow + 1 : numRow, col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1}})
+    ].map((c, i) => {
+        return {...c, id: i, row: 1, col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1}
+    })
 }
 
 const cellReducer = (state = initialState, action) => {
-
     switch (action.type) {
         case SET_CELL: {
-            if (state.table[state.table.length - 1].row.length >= 15) {
-                let newRow = [{
-                    index: Math.round(new Date().getTime() * Math.random()),
-                    selected: false,
-                    backgroundColor: "#fff"
-                }];
-                return {...state, table: [...state.table, {row: newRow}]};
+            let newCell = {
+                backgroundColor: "#fff",
+                selected: false,
+                index: Math.round(new Date().getTime() * Math.random())
             }
-
+            // return {...state, cell: [...state.cell, newCell].map((c, i) => {return {...c, id: i, row: i === 0 ? numRow : Number.isInteger(i / 15) ? numRow = numRow + 1 : numRow, col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1}})}
             return {
-                ...state,
-                table: state.table.map((r, i) => {
-                    let col = {
-                        index: Math.round(new Date().getTime() * Math.random()),
-                        selected: false,
-                        backgroundColor: "#fff"
+                ...state, cell: [...state.cell, newCell].map((c, i) => {
+                    return {
+                        ...c,
+                        id: i,
+                        row: Math.ceil((i + 1) / 15),
+                        col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
                     }
-                    if (r.row.length >= 15) return {row: [...r.row]}
-                    else return {row: [...r.row, col]}
                 })
             }
         }
         case SET_SELECTED: {
             return {
                 ...state,
-                table: state.table.flatMap((r, id) => {
-                        const select = r.row.flatMap((c, i) => {
-                            if (i === action.i && id === action.id) {
-                                return {...c, selected: true}
-                            }
-                            return c
-                        })
-                        // При кожному натисканні допушує до рядків в кінець весь масив
-                        // return {row: [...r.row, select]}
-
-                        // До кожного рядка додає новий стейт з двох попередніх рядків
-                        // return {row: [r.row, select]}
-
-                        // Перезатирає стейт рядків (П.С. ЕКШН ІД МОЖЕ СПІВПАДАТИ З ІД КОЛОНОК КОЖНОГО РЯДКА)
-
-                        //DONE
-                        return {row: [select].flat()}
+                cell: state.cell.map((c, i) => {
+                    if (i === action.i) {
+                        return {...c, selected: true}
                     }
-                )
-            }
-        }
-        case
-        SET_NO_SELECTED: {
-            return {
-                ...state,
-                table: state.table.flatMap((r, id) => {
-                        const select = r.row.flatMap((c, i) => {
-                            if (i === action.i && id === action.id) {
-                                return {...c, selected: false}
-                            }
-                            return c
-                        })
-                        return {row: [select].flat()}
-                    }
-                )
-            }
-        }
-        case
-        SET_DELETE_CELL: {
-            return {
-                ...state,
-                table: state.table.flatMap(r => {
-                    const deleted = r.row.filter(c => c.selected === false)
-                    return [{row: [deleted].flat()}]
-                })
-            }
-            // let deleted = state.table.flatMap(r => r.row.filter(c => c.selected === false))
-            // console.log(deleted)
-            // return {
-            //     ...state,
-            //     // table: [{row: {...state.table.map(r => r.row.filter(c => c.selected === false))}}]
-            //     table: [{row: [deleted].flat()}]
-            // }
-        }
-        case
-        SET_COLOR: {
-            return {
-                ...state,
-                table: state.table.flatMap(r => {
-                    const color = r.row.flatMap(c => {
-                        if (c.selected) {
-                            return {...c, backgroundColor: action.color, selected: false}
-                        }
-                        return c
-                    })
-                    return {row: [color].flat()}
+                    return c
                 })
             }
         }
-        // case SET_COMBINE: {
-        //     return {
-        //         ...state,
-        //         cell: state.cell.map((c, i) => {
-        //             if (c.selected) {
-        //                 if (i === action.i) {
-        //                     // ОКРЕМО ALL
-        //                     return <div>ddd</div>
-        //                 } else return alert("Error")
-        //             }
-        //             return c
-        //         })
-        //     }
-        // }
+        case SET_NO_SELECTED: {
+            return {
+                ...state,
+                cell: state.cell.map((c, i) => {
+                    if (i === action.i) {
+                        return {...c, selected: false}
+                    }
+                    return c
+                })
+            }
+        }
+        case SET_DELETE_CELL: {
+            return {
+                ...state,
+                cell: state.cell.filter(c => c.selected === false).map((c, i) => {
+                    return {
+                        ...c,
+                        id: i,
+                        row: Math.ceil((i + 1) / 15),
+                        col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                    }
+                })
+            }
+        }
+        case SET_COLOR: {
+            return {
+                ...state,
+                cell: state.cell.map(c => {
+                    if (c.selected) {
+                        return {...c, backgroundColor: action.color, selected: false}
+                    }
+                    return c
+                })
+            }
+        }
+        case SET_COMBINE: {
+            let arr = []
+            // console.log(arr)
+
+            // ВИБРАНІ ДЛЯ ОБ'ЄДНАННЯ КЛІТИНКИ ПОВИННІ БУТИ В ОДНОМУ МАСИВІ, ЩОБ БУЛА ЗМОГА ВИБИРАТИ ЇХ РАЗОМ ОДНИМ КЛІКОМ (?)
+            // АЛЕ ЦЕ ПРИЗВОДИТЬ ДО ТОГО, ЩО ЕЛЕМЕНТИ ЗАВЖДИ БУДУТЬ ОДНЕ БІЛЯ ОДНОГО (В ОДНОМУ РЯДКУ)
+
+            // ЧИ ПОТРІБНО ЗАЛИШАТИ ОДИН ДІЮЧИЙ МАСИВ, А ІНШІ (КОПІЇ) ПРИХОВУВАТИ? І ЗАМІСТЬ НЬОГО ВІДМАЛЬОВУВАТИ
+
+            return {
+                ...state,
+                cell: state.cell.map(c => {
+                    if (c.selected) {
+                        arr.push(c)
+                        return arr
+                    }
+                    return c
+                })
+            }
+        }
         default: {
             return state;
         }
@@ -208,10 +123,10 @@ const cellReducer = (state = initialState, action) => {
 }
 
 export const setCellAC = () => ({type: SET_CELL});
-export const setSelectedAC = (i, id) => ({type: SET_SELECTED, i, id});
-export const setNoSelectedAC = (i, id) => ({type: SET_NO_SELECTED, i, id});
+export const setSelectedAC = (i) => ({type: SET_SELECTED, i});
+export const setNoSelectedAC = (i) => ({type: SET_NO_SELECTED, i});
 export const setDeleteCellAC = () => ({type: SET_DELETE_CELL});
 export const setColorAC = (color) => ({type: SET_COLOR, color});
-// export const setCombineAC = (i) => ({type: SET_COMBINE, i});
+export const setCombineAC = () => ({type: SET_COMBINE});
 
 export default cellReducer;

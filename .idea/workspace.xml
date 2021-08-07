@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4417cfc9-9974-498a-bf44-2c92f1d4ea53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/App2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/mirst/Mirst-first.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/cell-reducer-first.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/mirst/Mirst-second.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/mirst/MirstContainer-second.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/cell-reducer-second.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/cell-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/cell-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/mirst" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -40,8 +37,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Дизайн\Front\New\React\mirst\src\redux" />
       <recent name="E:\Дизайн\Front\New\React\mirst\src\components\mirst" />
+      <recent name="E:\Дизайн\Front\New\React\mirst\src\redux" />
       <recent name="E:\Дизайн\Front\New\React\mirst\src" />
     </key>
   </component>
@@ -85,7 +82,15 @@
       <workItem from="1627776637060" duration="584000" />
       <workItem from="1627836075064" duration="15697000" />
       <workItem from="1627936963786" duration="575000" />
-      <workItem from="1627947547881" duration="4757000" />
+      <workItem from="1627947547881" duration="4953000" />
+      <workItem from="1628018298374" duration="7385000" />
+      <workItem from="1628083583453" duration="6115000" />
+      <workItem from="1628110404066" duration="2914000" />
+      <workItem from="1628118875785" duration="2857000" />
+      <workItem from="1628167620127" duration="4182000" />
+      <workItem from="1628187193283" duration="5299000" />
+      <workItem from="1628278374004" duration="8464000" />
+      <workItem from="1628291392344" duration="9056000" />
     </task>
     <servers />
   </component>
