@@ -24,7 +24,6 @@ let initialState = {
             selected: false,
             index: Math.round(new Date().getTime() * Math.random())
         },
-        // ].map((c, i) => {return {...c, id: i, row: i === 0 ? numRow : Number.isInteger(i / 15) ? numRow = numRow + 1 : numRow, col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1}})
     ].map((c, i) => {
         return {...c, id: i, row: 1, col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1}
     })
@@ -33,20 +32,24 @@ let initialState = {
 const cellReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CELL: {
+            let i = state.cell.length
             let newCell = {
                 backgroundColor: "#fff",
                 selected: false,
-                index: Math.round(new Date().getTime() * Math.random())
+                index: Math.round(new Date().getTime() * Math.random()),
+                id: i,
+                row: Math.ceil((i + 1) / 15),
+                col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
             }
-            // return {...state, cell: [...state.cell, newCell].map((c, i) => {return {...c, id: i, row: i === 0 ? numRow : Number.isInteger(i / 15) ? numRow = numRow + 1 : numRow, col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1}})}
             return {
                 ...state, cell: [...state.cell, newCell].map((c, i) => {
-                    return {
-                        ...c,
-                        id: i,
-                        row: Math.ceil((i + 1) / 15),
-                        col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
-                    }
+                    return !Array.isArray(c) ? {
+                            ...c,
+                            id: i,
+                            row: Math.ceil((i + 1) / 15),
+                            col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                        }
+                        : [...c]
                 })
             }
         }
@@ -54,10 +57,8 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.map((c, i) => {
-                    if (i === action.i) {
-                        return {...c, selected: true}
-                    }
-                    return c
+                    return Array.isArray(c) ? i === action.i ? [{...c['0'], selected: true}].flat() : c
+                        : i === action.i ? {...c, selected: true} : c
                 })
             }
         }
@@ -65,10 +66,9 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.map((c, i) => {
-                    if (i === action.i) {
-                        return {...c, selected: false}
-                    }
-                    return c
+                    return Array.isArray(c) ? i === action.i ? [{...c['0'], selected: false}].flat() : c
+                        :
+                        i === action.i ? {...c, selected: false} : c
                 })
             }
         }
@@ -76,12 +76,13 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.filter(c => c.selected === false).map((c, i) => {
-                    return {
-                        ...c,
-                        id: i,
-                        row: Math.ceil((i + 1) / 15),
-                        col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
-                    }
+                    return Array.isArray(c) ? c
+                        : {
+                            ...c,
+                            id: i,
+                            row: Math.ceil((i + 1) / 15),
+                            col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                        }
                 })
             }
         }
@@ -98,19 +99,12 @@ const cellReducer = (state = initialState, action) => {
         }
         case SET_COMBINE: {
             let arr = []
-            // console.log(arr)
-
-            // ВИБРАНІ ДЛЯ ОБ'ЄДНАННЯ КЛІТИНКИ ПОВИННІ БУТИ В ОДНОМУ МАСИВІ, ЩОБ БУЛА ЗМОГА ВИБИРАТИ ЇХ РАЗОМ ОДНИМ КЛІКОМ (?)
-            // АЛЕ ЦЕ ПРИЗВОДИТЬ ДО ТОГО, ЩО ЕЛЕМЕНТИ ЗАВЖДИ БУДУТЬ ОДНЕ БІЛЯ ОДНОГО (В ОДНОМУ РЯДКУ)
-
-            // ЧИ ПОТРІБНО ЗАЛИШАТИ ОДИН ДІЮЧИЙ МАСИВ, А ІНШІ (КОПІЇ) ПРИХОВУВАТИ? І ЗАМІСТЬ НЬОГО ВІДМАЛЬОВУВАТИ
-
             return {
                 ...state,
-                cell: state.cell.map(c => {
+                cell: state.cell.map((c, i) => {
                     if (c.selected) {
-                        arr.push(c)
-                        return arr
+                        arr.push({...c, selected: false})
+                        return [{arr, backgroundColor: '#fff', selected: false}].flat()
                     }
                     return c
                 })

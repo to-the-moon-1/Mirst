@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4417cfc9-9974-498a-bf44-2c92f1d4ea53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/mirst/Mirst-second.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/mirst/MirstContainer-second.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/cell-reducer-second.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/cell-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/cell-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +87,13 @@
       <workItem from="1628167620127" duration="4182000" />
       <workItem from="1628187193283" duration="5299000" />
       <workItem from="1628278374004" duration="8464000" />
-      <workItem from="1628291392344" duration="9056000" />
+      <workItem from="1628291392344" duration="9206000" />
+      <workItem from="1628436773986" duration="8954000" />
+      <workItem from="1628452390936" duration="10478000" />
+      <workItem from="1628513359993" duration="4735000" />
+      <workItem from="1628523383273" duration="8860000" />
+      <workItem from="1628605801503" duration="9803000" />
+      <workItem from="1628621247771" duration="1168000" />
     </task>
     <servers />
   </component>

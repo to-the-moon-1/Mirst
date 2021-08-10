@@ -310,3 +310,27 @@
     /*background-color: #b9c2fa !important;*/
     background-color: gold !important;
 }
+
+.combine {
+    padding: 0 !important;
+    min-width: 0 !important;
+    border-radius: 2px !important;
+}
+
+/*.combine:first-child {*/
+/*    cursor: pointer;*/
+/*    padding: 7% 6.4% !important;*/
+/*    margin: 0.4% !important;*/
+/*}*/
+
+.combine {
+    cursor: pointer;
+    padding: 7% 6.4% !important;
+    margin: 0.4% !important;
+}
+
+.combine ~ .combine {
+    cursor: unset;
+    padding: 0 !important;
+    margin: 0 !important;
+}
