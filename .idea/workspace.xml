@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/MirstContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/cell-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/cell-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +30,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -93,7 +94,18 @@
       <workItem from="1628513359993" duration="4735000" />
       <workItem from="1628523383273" duration="8860000" />
       <workItem from="1628605801503" duration="9803000" />
-      <workItem from="1628621247771" duration="1168000" />
+      <workItem from="1628621247771" duration="6599000" />
+      <workItem from="1628628719854" duration="316000" />
+      <workItem from="1628629117093" duration="402000" />
+      <workItem from="1628632166784" duration="4797000" />
+      <workItem from="1628687924875" duration="5993000" />
+      <workItem from="1628699465393" duration="10269000" />
+      <workItem from="1628714669542" duration="7054000" />
+      <workItem from="1628774803904" duration="4917000" />
+      <workItem from="1628941077337" duration="6809000" />
+      <workItem from="1629032438093" duration="3942000" />
+      <workItem from="1629050629051" duration="5675000" />
+      <workItem from="1629142107269" duration="2548000" />
     </task>
     <servers />
   </component>

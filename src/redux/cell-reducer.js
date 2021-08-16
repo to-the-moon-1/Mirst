@@ -1,9 +1,12 @@
 const SET_CELL = 'SET_CELL';
 const SET_SELECTED = 'SET_SELECTED';
 const SET_NO_SELECTED = 'SET_NO_SELECTED';
+const SET_SELECTED_ARR = 'SET_SELECTED_ARR';
+const SET_NO_SELECTED_ARR = 'SET_NO_SELECTED_ARR';
 const SET_DELETE_CELL = 'SET_DELETE_CELL';
 const SET_COLOR = 'SET_COLOR';
 const SET_COMBINE = 'SET_COMBINE';
+const SET_SEPARATE = 'SET_SEPARATE';
 
 let numCol = 1
 
@@ -57,8 +60,13 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.map((c, i) => {
-                    return Array.isArray(c) ? i === action.i ? [{...c['0'], selected: true}].flat() : c
-                        : i === action.i ? {...c, selected: true} : c
+                    // If only first array
+                    // return Array.isArray(c) ? i === action.i ? [{...c['0'], selected: true}].flat() : c
+                    //     : i === action.i ? {...c, selected: true} : c
+                    if (i === action.i) {
+                        return {...c, selected: true}
+                    }
+                    return c;
                 })
             }
         }
@@ -66,16 +74,38 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.map((c, i) => {
-                    return Array.isArray(c) ? i === action.i ? [{...c['0'], selected: false}].flat() : c
-                        :
-                        i === action.i ? {...c, selected: false} : c
+                    // If only first array
+                    // return Array.isArray(c) ? i === action.i ? [{...c['0'], selected: false}].flat() : c
+                    //     : i === action.i ? {...c, selected: false} : c
+                    if (i === action.i) {
+                        return {...c, selected: false}
+                    }
+                    return c;
+                })
+            }
+        }
+        case SET_SELECTED_ARR: {
+            return {
+                ...state,
+                cell: state.cell.map(c => {
+                    return Array.isArray(c) ? [{...c['0'], selected: true}].flat()
+                        : c
+                })
+            }
+        }
+        case SET_NO_SELECTED_ARR: {
+            return {
+                ...state,
+                cell: state.cell.map(c => {
+                    return Array.isArray(c) ? [{...c['0'], selected: false}].flat()
+                        : c
                 })
             }
         }
         case SET_DELETE_CELL: {
             return {
                 ...state,
-                cell: state.cell.filter(c => c.selected === false).map((c, i) => {
+                cell: state.cell.filter(c => Array.isArray(c) ? c[0].selected === false : c.selected === false).map((c, i) => {
                     return Array.isArray(c) ? c
                         : {
                             ...c,
@@ -90,10 +120,17 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.map(c => {
-                    if (c.selected) {
-                        return {...c, backgroundColor: action.color, selected: false}
+                    if (Array.isArray(c)) {
+                        if (c[0].selected) {
+                            return [{...c[0], backgroundColor: action.color, selected: false}]
+                        }
+                        return [c[0]]
+                    } else {
+                        if (c.selected) {
+                            return {...c, backgroundColor: action.color, selected: false}
+                        }
+                        return c
                     }
-                    return c
                 })
             }
         }
@@ -110,6 +147,21 @@ const cellReducer = (state = initialState, action) => {
                 })
             }
         }
+        case SET_SEPARATE: {
+            return {
+                ...state,
+                cell: state.cell.map((c, i) => {
+                    if (Array.isArray(c) && c.filter(combine => combine.selected)) {
+                        const element = c[0].arr.map(cc => cc.id)
+                        const index = element.indexOf(i)
+                        const separate = c[0].arr[index]
+                        console.log(separate.backgroundColor)
+                        return separate
+                    }
+                    return c
+                })
+            }
+        }
         default: {
             return state;
         }
@@ -119,8 +171,11 @@ const cellReducer = (state = initialState, action) => {
 export const setCellAC = () => ({type: SET_CELL});
 export const setSelectedAC = (i) => ({type: SET_SELECTED, i});
 export const setNoSelectedAC = (i) => ({type: SET_NO_SELECTED, i});
+export const setSelectedArrAC = () => ({type: SET_SELECTED_ARR});
+export const setNoSelectedArrAC = () => ({type: SET_NO_SELECTED_ARR});
 export const setDeleteCellAC = () => ({type: SET_DELETE_CELL});
 export const setColorAC = (color) => ({type: SET_COLOR, color});
 export const setCombineAC = () => ({type: SET_COMBINE});
+export const setSeparateAC = () => ({type: SET_SEPARATE});
 
 export default cellReducer;

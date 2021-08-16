@@ -293,7 +293,7 @@
     display: inline-block;
     margin: 0.4% !important;
     /*padding: 0 !important;*/
-    padding: 2.93% !important;
+    padding: 2.925% !important;
     min-width: unset !important;
 }
 
@@ -312,7 +312,7 @@
 }
 
 .combine {
-    padding: 0 !important;
+    padding: 0;
     min-width: 0 !important;
     border-radius: 2px !important;
 }
@@ -325,7 +325,7 @@
 
 .combine {
     cursor: pointer;
-    padding: 7% 6.4% !important;
+    /*padding: 7% 6.4% !important;*/
     margin: 0.4% !important;
 }
 
@@ -334,3 +334,21 @@
     padding: 0 !important;
     margin: 0 !important;
 }
+
+
+
+
+
+/*2*/
+/*padding: 6.25% 6.25% !important;*/
+/*3*/
+/*padding: 9.574% 9.574% !important;*/
+/*4*/
+/*padding: 12.89% 12.89% !important;*/
+/*5*/
+/*padding: 16.222% 16.222% !important;*/
+/*10*/
+/*padding: 32.84% 32.84% !important;*/
+
+/*formula (end: mb -1px)*/
+/*padding: 2.925 * row + 0,4 * (row - 1);*/

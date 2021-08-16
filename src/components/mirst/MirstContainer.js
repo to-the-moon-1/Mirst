@@ -4,8 +4,8 @@ import {
     setCellAC,
     setColorAC, setCombineAC,
     setDeleteCellAC,
-    setNoSelectedAC,
-    setSelectedAC
+    setNoSelectedAC, setNoSelectedArrAC,
+    setSelectedAC, setSelectedArrAC, setSeparateAC
 } from "../../redux/cell-reducer";
 
 let mapStateToProps = (state) => {
@@ -26,6 +26,12 @@ let mapDispatchToProps = (dispatch) => {
         setNoSelected: (i) => {
             dispatch(setNoSelectedAC(i))
         },
+        setSelectedArr: () => {
+            dispatch(setSelectedArrAC())
+        },
+        setNoSelectedArr: () => {
+            dispatch(setNoSelectedArrAC())
+        },
         setDeleteCell: () => {
             dispatch(setDeleteCellAC())
         },
@@ -34,6 +40,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setCombine: () => {
             dispatch(setCombineAC())
+        },
+        setSeparate: () => {
+            dispatch(setSeparateAC())
         },
     }
 }
