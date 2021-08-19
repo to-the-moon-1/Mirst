@@ -5,11 +5,28 @@ const Mirst = (props) => {
 
     console.log(props.cell)
 
-    const row = props.cell.filter(c => Array.isArray(c)).map(combine => combine[0].arr[combine[0].arr.length - 1].row)[0]
-    // console.log(row)
+    // const row = props.cell.filter(c => Array.isArray(c)).map(combine => combine[0].arr[combine[0].arr.length - 1].row)[0]
+    // const col = props.cell.filter(c => Array.isArray(c)).map(combine => combine[0].arr).length
 
-    const col = props.cell.filter(c => Array.isArray(c)).map(combine => combine[0].arr).length
-    // console.log(col)
+    let array = []
+
+    props.cell.filter(c => Array.isArray(c)).map((combine, i, arr) => {
+        for (let value of arr[0][0].arr.map(c => c.row)) {
+            // Порівнює кожен елемент зі всіма іншими по черзі (к-сть true множиться на 2)
+            const a = value === combine[0].arr[i].row
+            array.push(a)
+        }
+    })
+
+    // row next === row + 1 ? row.length : row next === row ? row.filter(true) : row[0]
+    // якщо наступний рядок більше, ніж попередній, то один ряд : якщо деякі рядки сходяться (це квадрат), то відкидаємо непотрібні
+
+    const rowLength = props.cell.filter(c => Array.isArray(c)).map((cc, i) => cc[0].arr[i]).length
+    const colQ = Math.floor(array.filter(cc => cc === true).length / rowLength)
+    const rowQ = Math.floor(rowLength / colQ)
+    // console.log('length', rowLength)
+    // console.log('col', colQ)
+    // console.log('row', rowQ)
 
     const handleChangeColor = (color) => {
         props.setColor(color)
@@ -53,15 +70,16 @@ const Mirst = (props) => {
 
         <div className="cellContainer">
             {props.cell.map((c, i) => {
-                    return Array.isArray(c) ? <Button key={`id_${i}`}
-                                                      className={c.flatMap(combine => combine.selected)[0] === true ? "combine activeCell" : "combine"}
-                                                      id={c.index}
-                                                      onClick={() => handleClick(c, i)}
-                                                      style={{
-                                                          backgroundColor: c.map(combine => combine.backgroundColor),
-                                                          padding: ((2.925 * row) + (0.4 * (row - 1))) + '% ' + (Math.floor(col / row) * 2.925 + (Math.floor(col / row) - 1) * 0.4) + '% '
-                                                      }}
-                        >
+                    return Array.isArray(c)
+                        ? <Button key={`id_${i}`}
+                                  className={c.flatMap(combine => combine.selected)[0] === true ? "combine activeCell" : "combine"}
+                                  id={c.index}
+                                  onClick={() => handleClick(c, i)}
+                                  style={{
+                                      backgroundColor: c.map(combine => combine.backgroundColor),
+                                      // padding: ((2.925 * row) + (0.4 * (row - 1))) + '% ' + (Math.floor(col / row) * 2.925 + (Math.floor(col / row) - 1) * 0.4) + '% '
+                                      padding: ((2.925 * rowQ) + (0.4 * (rowQ - 1))) + '% ' + ((2.925 * colQ) + (0.4 * (colQ - 1))) + '% '
+                                  }}>
                             {
                                 c.map((combine, i) =>
                                     <span key={`id_${i}`}

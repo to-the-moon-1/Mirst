@@ -103,16 +103,27 @@ const cellReducer = (state = initialState, action) => {
             }
         }
         case SET_DELETE_CELL: {
+            let arr = []
             return {
                 ...state,
                 cell: state.cell.filter(c => Array.isArray(c) ? c[0].selected === false : c.selected === false).map((c, i) => {
-                    return Array.isArray(c) ? c
-                        : {
-                            ...c,
-                            id: i,
-                            row: Math.ceil((i + 1) / 15),
-                            col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
-                        }
+                    if (Array.isArray(c)) {
+                        arr.push({
+                            arr: c[0].arr.map((el, ind) => ({
+                                ...el,
+                                id: i + ind,
+                                row: Math.ceil((i + ind + 1) / 15),
+                                col: Number.isInteger((i + ind) / 15) ? numCol = 1 : numCol = i + ind + 1,
+                            }))
+                        })
+                        return [{...arr['0'], backgroundColor: '#fff', selected: false}].flat()
+                    }
+                    return {
+                        ...c,
+                        id: i,
+                        row: Math.ceil((i + 1) / 15),
+                        col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                    }
                 })
             }
         }
@@ -138,7 +149,7 @@ const cellReducer = (state = initialState, action) => {
             let arr = []
             return {
                 ...state,
-                cell: state.cell.map((c, i) => {
+                cell: state.cell.map(c => {
                     if (c.selected) {
                         arr.push({...c, selected: false})
                         return [{arr, backgroundColor: '#fff', selected: false}].flat()
@@ -151,12 +162,18 @@ const cellReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cell: state.cell.map((c, i) => {
-                    if (Array.isArray(c) && c.filter(combine => combine.selected)) {
+                    if (Array.isArray(c) && c.flatMap(combine => combine.selected)[0] === true) {
                         const element = c[0].arr.map(cc => cc.id)
                         const index = element.indexOf(i)
                         const separate = c[0].arr[index]
-                        console.log(separate.backgroundColor)
-                        return separate
+                        return {
+                            ...separate,
+                            backgroundColor: c[0].backgroundColor,
+                            selected: false,
+                            id: i,
+                            row: Math.ceil((i + 1) / 15),
+                            col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                        }
                     }
                     return c
                 })
