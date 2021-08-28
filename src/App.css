@@ -217,7 +217,7 @@
 /*BUTTON*/
 
 .buttonContainer {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .btn {
@@ -311,11 +311,11 @@
     background-color: gold !important;
 }
 
-.combine {
-    padding: 0;
-    min-width: 0 !important;
-    border-radius: 2px !important;
-}
+/*.combine {*/
+/*    padding: 0;*/
+/*    min-width: 0 !important;*/
+/*    border-radius: 2px !important;*/
+/*}*/
 
 /*.combine:first-child {*/
 /*    cursor: pointer;*/
@@ -326,14 +326,17 @@
 .combine {
     cursor: pointer;
     /*padding: 7% 6.4% !important;*/
-    margin: 0.4% !important;
+    /*margin: 0.4% !important;*/
+    /*padding: 0;*/
+    min-width: 0 !important;
+    border-radius: 2px !important;
 }
 
-.combine ~ .combine {
-    cursor: unset;
-    padding: 0 !important;
-    margin: 0 !important;
-}
+/*.combine ~ .combine {*/
+/*    cursor: unset;*/
+/*    padding: 0 !important;*/
+/*    margin: 0 !important;*/
+/*}*/
 
 
 

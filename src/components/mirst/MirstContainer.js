@@ -26,11 +26,11 @@ let mapDispatchToProps = (dispatch) => {
         setNoSelected: (i) => {
             dispatch(setNoSelectedAC(i))
         },
-        setSelectedArr: () => {
-            dispatch(setSelectedArrAC())
+        setSelectedArr: (i) => {
+            dispatch(setSelectedArrAC(i))
         },
-        setNoSelectedArr: () => {
-            dispatch(setNoSelectedArrAC())
+        setNoSelectedArr: (i) => {
+            dispatch(setNoSelectedArrAC(i))
         },
         setDeleteCell: () => {
             dispatch(setDeleteCellAC())
