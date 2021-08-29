@@ -161,7 +161,8 @@
 /*ALL PAGE*/
 
 .container-page {
-    background-color: lavender;
+    /*background-color: lavender;*/
+    background-color: #101b2f;
 }
 
 .MuiContainer-root {
@@ -169,13 +170,13 @@
 }
 
 .container-content {
-    background-color: white;
-    height: 905px;
+    /*background-color: white;*/
+    min-height: 865px;
     /*background-color: #f5f5f5;*/
 }
 
 .main-content {
-    padding: 100px 30px;
+    padding: 100px 0;
 }
 
 
@@ -199,13 +200,24 @@
     opacity: .7;
 }
 
+.MuiAppBar-colorPrimary {
+    height: 20%;
+    padding: 15px;
+    background: #101b2f !important;
+    box-shadow: unset !important;
+}
+
 .MuiToolbar-root {
     justify-content: space-between;
+    /*border-bottom: 1px solid slategrey;*/
+    padding-bottom: 10px;
 }
 
 .activeLink {
     color: #fff;
     opacity: 1;
+    font-size: 26px;
+    letter-spacing: 0.15em;
 }
 
 
@@ -217,7 +229,7 @@
 /*BUTTON*/
 
 .buttonContainer {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .btn {
@@ -233,28 +245,51 @@
     /*background-color: #d49803 !important;*/
     /*background-color: darkcyan !important;*/
     /*background-color: lightslategrey !important;*/
-    background-color: slategrey !important;
+    /*background-color: slategrey !important;*/
+    background-color: #3fb376 !important;
 }
 
 .deleteBtn {
     background-color: crimson !important;
 }
 
+.secondBtn {
+    /*border: 1px solid rgba(255, 255, 255, .5) !important;*/
+    border: 1px solid slategrey !important;
+    /*color: rgba(255, 255, 255, .8) !important;*/
+    color: #ffffff !important;
+    background-color: slategrey !important;
+}
+
 /*PALETTE COLORS*/
 
 .colorContainer {
-    width: 24.2%;
-    margin-left: 75.8%;
-    margin-bottom: 50px;
+    /*width: 24.2%;*/
+    /*margin-left: 75.8%;*/
+    /*margin-top: 25px;*/
+    padding: 25px 0;
+    /*padding-top: 15px;*/
+    /*border-top: 1px solid slategrey;*/
+}
+
+.setColor {
+    color: white;
+    opacity: .7;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-right: 5px;
 }
 
 .color {
     display: inline-block;
-    margin: 3px !important;
+    margin: 4px !important;
+    margin-bottom: 6px !important;
     padding: 0 !important;
     min-width: unset !important;
-    width: 30px;
-    height: 30px;
+    width: 55px;
+    height: 13px;
+    border-radius: 3px !important;
 }
 
 .colorOne {
@@ -300,10 +335,12 @@
 .cellContainer {
     /*background-color: #3f51b5;*/
     /*background-color: #4f62cb;*/
-    background-color: #5c6fdb;
+    /*background-color: #5c6fdb;*/
     /*padding: 20px 30px;*/
-    padding: 2.5% 3.7%;
-    border-radius: 5px;
+    /*padding: 2.5% 3.7%;*/
+    /*border-radius: 5px;*/
+    min-height: 510.5px;
+    position: relative;
 }
 
 .activeCell {

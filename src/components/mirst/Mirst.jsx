@@ -51,35 +51,35 @@ const Mirst = (props) => {
             <Button onClick={props.setDeleteCell} variant="contained" color="secondary" className="btn deleteBtn">
                 Delete cell
             </Button>
-            <Button onClick={props.setCombine} variant="outlined" color="primary" className="btn">
+            <Button onClick={props.setCombine} variant="outlined" color="primary" className="btn secondBtn">
                 Combine cells
             </Button>
-            <Button onClick={props.setSeparate} variant="outlined" color="primary" className="btn">
+            <Button onClick={props.setSeparate} variant="outlined" color="primary" className="btn secondBtn">
                 Separate cells
             </Button>
         </div>
 
-        <div className="colorContainer">
-            <Button onClick={() => handleChangeColor("#a4e7aa")} variant="contained" color="primary"
-                    className="color colorOne"/>
-            <Button onClick={() => handleChangeColor("lightblue")} variant="contained" color="primary"
-                    className="color colorTwo"/>
-            <Button onClick={() => handleChangeColor("#aaa7ff")} variant="contained" color="primary"
-                    className="color colorThree"/>
-            <Button onClick={() => handleChangeColor("lightcoral")} variant="contained" color="primary"
-                    className="color colorFour"/>
-            <Button onClick={() => handleChangeColor("burlywood")} variant="contained" color="primary"
-                    className="color colorFive"/>
-            <Button onClick={() => handleChangeColor("thistle")} variant="contained" color="primary"
-                    className="color colorSix"/>
-        </div>
+        {/*<div className="colorContainer">*/}
+        {/*    <Button onClick={() => handleChangeColor("#a4e7aa")} variant="contained" color="primary"*/}
+        {/*            className="color colorOne"/>*/}
+        {/*    <Button onClick={() => handleChangeColor("lightblue")} variant="contained" color="primary"*/}
+        {/*            className="color colorTwo"/>*/}
+        {/*    <Button onClick={() => handleChangeColor("#aaa7ff")} variant="contained" color="primary"*/}
+        {/*            className="color colorThree"/>*/}
+        {/*    <Button onClick={() => handleChangeColor("lightcoral")} variant="contained" color="primary"*/}
+        {/*            className="color colorFour"/>*/}
+        {/*    <Button onClick={() => handleChangeColor("burlywood")} variant="contained" color="primary"*/}
+        {/*            className="color colorFive"/>*/}
+        {/*    <Button onClick={() => handleChangeColor("thistle")} variant="contained" color="primary"*/}
+        {/*            className="color colorSix"/>*/}
+        {/*</div>*/}
 
         <div className="cellContainer">
             {props.cell.map((c, i) => {
                     return Array.isArray(c)
                         ? c.map((combine, index) => {
                             return i === combine.arr[index].id
-                                ? <span key={`id_${i}`}><Button className={c.flatMap(combine => combine.selected)[0] === true ? "combine activeCell" : "combine"}
+                                ? <React.Fragment key={`id_${i}`}><Button className={c.flatMap(combine => combine.selected)[0] === true ? "combine activeCell" : "combine"}
                                             onClick={() => handleClick(c, i)}
                                             style={{
                                                 backgroundColor: c.map(combine => combine.backgroundColor),
@@ -104,15 +104,12 @@ const Mirst = (props) => {
 
                                                     // console.log(combine.arr[index].id)
                                                     // console.log(combine.arr[index].id + 1)
-                                                    // return i === combine.arr[index].id ? ((2.925 * rowQ) + (0.4 * (rowQ - 1))) + '% ' + ((2.925 * colQ) + (0.4 * (colQ - 1))) + '% ' : 0
-                                                    // return i === combine.arr[index].id ? ((2.0 * rowQ) + (0.22 * (rowQ - 1))) + '% ' + ((2.0 * colQ) + (0.22 * (colQ - 1))) + '% ' : 0
-                                                    // return i === combine.arr[index].id ? ((2.012 * rowQ) + (0.27 * (rowQ - 1))) + '% ' + ((2.012 * colQ) + (0.27 * (colQ - 1))) + '% ' : 0
-                                                    return i === combine.arr[index].id ? ((1.943 * rowQ) + (0.27 * (rowQ - 1))) + '% ' + ((1.943 * colQ) + (0.27 * (colQ - 1))) + '% ' : 0
+                                                    return i === combine.arr[index].id ? ((2.925 * rowQ) + (0.4 * (rowQ - 1))) + '% ' + ((2.925 * colQ) + (0.4 * (colQ - 1))) + '% ' : 0
+                                                    // return i === combine.arr[index].id ? ((2.7 * rowQ) + (0.4 * (rowQ - 1))) + '% ' + ((2.7 * colQ) + (0.4 * (colQ - 1))) + '% ' : 0
+                                                    // return i === combine.arr[index].id ? ((2.68 * rowQ) + (0.4 * (rowQ - 1))) + '% ' + ((2.68 * colQ) + (0.4 * (colQ - 1))) + '% ' : 0
                                                 }),
                                                 margin: c.map((combine, index) => {
-                                                    // return i === combine.arr[index].id ? 0.4 + '%' : 0
-                                                    // return i === combine.arr[index].id ? 0.22 + '%' : 0
-                                                    return i === combine.arr[index].id ? 0.27 + '%' : 0
+                                                    return i === combine.arr[index].id ? 0.4 + '%' : 0
                                                 }),
                                                 position: c.map((combine, index) => {
                                                     return i === combine.arr[index].id ? 'absolute' : 'relative'
@@ -127,7 +124,7 @@ const Mirst = (props) => {
                                         style={{
                                             opacity: 0
                                         }}/>
-                                </span>
+                                </React.Fragment>
                                 : <Button
                                     key={`id_${i}`}
                                     className="cell"
@@ -147,6 +144,22 @@ const Mirst = (props) => {
                     // </span>
                 }
             )}
+        </div>
+
+        <div className="colorContainer">
+            <span className="setColor">Set color: </span>
+            <Button onClick={() => handleChangeColor("#a4e7aa")} variant="contained" color="primary"
+                    className="color colorOne"/>
+            <Button onClick={() => handleChangeColor("lightblue")} variant="contained" color="primary"
+                    className="color colorTwo"/>
+            <Button onClick={() => handleChangeColor("#aaa7ff")} variant="contained" color="primary"
+                    className="color colorThree"/>
+            <Button onClick={() => handleChangeColor("lightcoral")} variant="contained" color="primary"
+                    className="color colorFour"/>
+            <Button onClick={() => handleChangeColor("burlywood")} variant="contained" color="primary"
+                    className="color colorFive"/>
+            <Button onClick={() => handleChangeColor("thistle")} variant="contained" color="primary"
+                    className="color colorSix"/>
         </div>
     </>
 }

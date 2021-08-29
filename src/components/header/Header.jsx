@@ -16,7 +16,7 @@ const Header = () => {
     const classes = useStyles();
 
     return <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" className="header">
             <Container maxWidth="md">
                 <Toolbar>
                     <NavLink className="headerLink" activeClassName="activeLink" exact to="/">Mirst</NavLink>
