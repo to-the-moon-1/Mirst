@@ -1,5 +1,3 @@
-import {light} from "@material-ui/core/styles/createPalette";
-
 const SET_CELL = 'SET_CELL';
 const SET_SELECTED = 'SET_SELECTED';
 const SET_NO_SELECTED = 'SET_NO_SELECTED';
@@ -45,7 +43,8 @@ const cellReducer = (state = initialState, action) => {
                 index: Math.round(new Date().getTime() * Math.random()),
                 id: i,
                 row: Math.ceil((i + 1) / 15),
-                col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                // col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                col: i + 1
                 // col: Math.ceil((numCol = i + 1) / (Math.ceil((i + 1) / 15)))
             }
             return {
@@ -54,7 +53,8 @@ const cellReducer = (state = initialState, action) => {
                             ...c,
                             id: i,
                             row: Math.ceil((i + 1) / 15),
-                            col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                            // col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                            col: i + 1
                             // col: Math.ceil((numCol = i + 1) / Math.ceil((i + 1) / 15))
                         }
                         : [...c]
@@ -138,25 +138,19 @@ const cellReducer = (state = initialState, action) => {
                                 ...el,
                                 id: i + ind,
                                 row: Math.ceil((i + ind + 1) / 15),
-                                col: Number.isInteger((i + ind) / 15) ? numCol = 1 : numCol = i + ind + 1,
+                                // col: Number.isInteger((i + ind) / 15) ? numCol = 1 : numCol = i + ind + 1,
+                                col: i + ind + 1,
                             }))
                         })
 
-                        // console.log(c)
-                        // якщо масиви рівні, то брати індекс 0 елементу
                         for (let value of c) {
                             // Порівнює кожен елемент зі всіма іншими по черзі
                             const a = value === c[0].id
                             console.log(arr)
                             console.log(value)
                             console.log(c[0].id)
-                            // console.log(i)
-                            // console.log(Math.min(i))
                             tried.push(a)
                         }
-
-                        // tried.push(i)
-                        // console.log(tried)
 
                         ind.push(c.map((combine, index) => {
                             // console.log(i)
@@ -200,7 +194,8 @@ const cellReducer = (state = initialState, action) => {
                         ...c,
                         id: i,
                         row: Math.ceil((i + 1) / 15),
-                        col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                        // col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                        col: i + 1
                     }
                 })
             }
@@ -229,6 +224,13 @@ const cellReducer = (state = initialState, action) => {
 
             let audit = []
 
+            let testCol = []
+            let testRow = []
+            let testFigure = []
+
+            let idRows = []
+            let obj = {}
+
             const cell = state.cell.map((c, i) => {
                 if (c.selected && state.cell.filter(c => c.selected).length >= 2) {
                     // Пропускає масиви
@@ -238,6 +240,8 @@ const cellReducer = (state = initialState, action) => {
                     }))
                     audit = []
 
+                    idRows = arr.map(c => c.row)
+
                     for (let value of arr.map(c => c)) {
                         const valCol = value.col
                         const valRow = value.row
@@ -246,39 +250,25 @@ const cellReducer = (state = initialState, action) => {
                         const line = valCol + 1 === c.col
                         audit.push(line)
 
+                        const test1 = valRow === c.row
+                        testCol.push(test1)
+
                         // ROW
-                        const lastRow = state.cell.filter(c => c.selected)[state.cell.filter(c => c.selected).length - 1].row
+                        // const lastRow = state.cell.filter(c => c.selected)[state.cell.filter(c => c.selected).length - 1].row
+                        // const countCol = state.cell.filter(c => c.selected).length
                         // const r = valCol > 15 ? valCol - 15 : valCol
                         const r = valCol > 15 ? valCol - (15 * (valRow - 1)) : valCol
-                        const s = c.col > 15 ? c.col - (15 * (lastRow - 1)) : c.col
-                        // console.log(r)
-                        // console.log(s)
+                        const s = c.col > 15 ? c.col - (15 * (c.row - 1)) : c.col
 
                         const row = valRow + 1 === c.row && r === s
                         audit.push(row)
 
-                        // FIGURE
-                        // Наступний рядок завжди буде дорівнювати попередньому + 1
-                        // Наступна клітинка завжди буде дорівнювати попередній + 1
-                        // Через рядок клітинка завжди буде дорівнювати попередній
-                        const k = valRow + 1 === c.row
-                        const l = valCol + 1 === c.col
-                        // const e = valRow + 1 === c.row && valCol + 1 === c.col
-                        const e = k && l
+                        const test2 = r === s
+                        testRow.push(test2)
 
-                        // Рівняти кожен елемент наступного рядку з нульовим теперішнім (чи збігаються колонки)
-                        console.log('Наступний рядок', valRow === c.row)
-                        console.log('Наступна клітинка', valCol + 1 === c.col)
-                        console.log('Через рядок клітинка', valRow + 1 === c.row)
-                        // console.log(e)
+                        // К-СТЬ КЛІТИНОК В КОЖНОМУ РЯДКУ РІВНА
+                        // console.log(Number.isInteger(countCol / lastRow) ? 'yes' : 'no')
                     }
-
-                    // for (let value of arr.map(c => c.col)) {
-                    //     // const valCol = value.col
-                    //     const line = value + 1 === c.col
-                    //     // audit = []
-                    //     audit.push(line)
-                    // }
 
                     return [{
                         arr,
@@ -293,12 +283,27 @@ const cellReducer = (state = initialState, action) => {
                 // return {...c, selected: false}
             })
 
+            idRows.forEach(value => obj[value] ? obj[value]++ : obj[value] = 1)
+            const objVal = Object.values(obj)
+
+            for (let value of objVal) {
+                testFigure.push(value === objVal[0])
+                console.log(value === objVal[0])
+                // console.log(audit.some(col => col === true))
+                // console.log(audit.filter(col => col === true).length)
+            }
+
             console.log(audit)
-            // console.log(audit.some(col => col === true))
+            console.log(idRows)
 
             return {
                 ...state,
-                cell: audit.some(col => col === true) ? cell : state.cell.map(c => c)
+                // cell: testCol.every(col => col === true) && audit.some(col => col === true) ? cell : testRow.every(row => row === true) && audit.some(col => col === true) ? cell : state.cell.map(c => c)
+                cell: testCol.every(col => col === true) && audit.some(col => col === true) ? cell
+                    : testRow.every(row => row === true) && audit.some(col => col === true) ? cell
+                    // : testFigure.every(figure => figure === true) && audit.some(col => col === true) ? cell
+                    : testFigure.every(figure => figure === true) ? cell
+                    : state.cell.map(c => c)
             }
         }
         case SET_SEPARATE: {
@@ -315,7 +320,8 @@ const cellReducer = (state = initialState, action) => {
                             selected: false,
                             id: i,
                             row: Math.ceil((i + 1) / 15),
-                            col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                            // col: Number.isInteger(i / 15) ? numCol = 1 : numCol = i + 1
+                            col: i + 1
                         }
                     }
                     return c

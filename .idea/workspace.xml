@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4417cfc9-9974-498a-bf44-2c92f1d4ea53" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirst/Mirst.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/cell-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/cell-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,12 @@
       <workItem from="1630091280073" duration="1263000" />
       <workItem from="1630101297940" duration="5269000" />
       <workItem from="1630168314817" duration="5481000" />
-      <workItem from="1630240908959" duration="6935000" />
+      <workItem from="1630240908959" duration="7284000" />
+      <workItem from="1630361512203" duration="4834000" />
+      <workItem from="1630448736100" duration="9622000" />
+      <workItem from="1630526648103" duration="4471000" />
+      <workItem from="1630676103063" duration="1178000" />
+      <workItem from="1630786874782" duration="10415000" />
     </task>
     <servers />
   </component>
